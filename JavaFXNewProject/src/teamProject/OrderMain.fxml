@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1">
-</BorderPane>
 
+<BorderPane prefHeight="500.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="order" layoutX="50.0" layoutY="97.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="주문" />
+            <Button fx:id="basket" layoutX="50.0" layoutY="225.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="장바구니" />
+            <Button fx:id="mypage" layoutX="50.0" layoutY="355.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="MYPAGE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
