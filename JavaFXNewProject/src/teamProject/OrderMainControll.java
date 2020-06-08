@@ -13,22 +13,11 @@ import javafx.scene.control.Button;
 
 public class OrderMainControll implements Initializable{
 	@FXML Button order,basket,mypage;
-	Connection conn;
-	PreparedStatement pstmt;
-	
+	Database db = new Database();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("Jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
-			
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-
-		}
+		
 		
 		order.setOnAction((e)->{
 			orderAction();
