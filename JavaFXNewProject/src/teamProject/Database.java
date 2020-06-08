@@ -9,11 +9,11 @@ import java.sql.SQLException;
 
 public class Database {
 	
-	static Connection conn;
-	PreparedStatement pstmt;
+	Connection conn = null;
+	PreparedStatement pstmt= null;
 
 	
-	public static Connection dbconnect(){
+	public Connection dbconnect(){
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,18 +27,40 @@ public class Database {
 		}
 		return conn;
 	}
-	public static void dbquery() {
+	public void dbselect() {
 	conn = dbconnect();
-	String sql = "";
+	String sql = "select id from customer";
 	try {
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
-		System.out.println(rs);
-		
+		rs.getInt("id");
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }
-
+	public void dbfood() {
+		conn = dbconnect();
+		String sql = "select * from food";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println(rs);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void dbbasket() {
+		conn = dbconnect();
+		String sql = "insert into vasket values(?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int rs = pstmt.executeUpdate();
+			System.out.println(rs);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

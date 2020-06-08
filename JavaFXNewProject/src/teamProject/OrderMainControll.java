@@ -21,6 +21,7 @@ public class OrderMainControll implements Initializable{
 		
 		order.setOnAction((e)->{
 			orderAction();
+			
 		});
 		mypage.setOnAction((e->{
 			mypageAction();
@@ -36,7 +37,7 @@ public class OrderMainControll implements Initializable{
 		
 	}
 	public void orderAction() {
-		
+		db.dbselect();
 	}
 
 }
