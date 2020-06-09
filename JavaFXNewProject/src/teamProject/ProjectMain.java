@@ -14,7 +14,7 @@ public class ProjectMain extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 		Scene scene = new Scene(root);
 		arg0.setScene(scene);
-		arg0.setTitle("Delivery APP");
+		arg0.setTitle(" Delivery APP ");
 		arg0.show();
 		
 	}
