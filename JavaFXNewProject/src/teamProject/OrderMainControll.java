@@ -32,7 +32,6 @@ public class OrderMainControll implements Initializable{
 	@FXML Label registry;
     @FXML TextField id;
     @FXML PasswordField password;
-//	@FXML ImageView order,basket,mypage;
 	Database db = new Database();
 	ProjectMain pm =new ProjectMain();
 	ObservableList<Customer> customer = null;
@@ -41,28 +40,18 @@ public class OrderMainControll implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
 		registry.setOnMouseClicked((e)-> register());
-//		order.setOnMouseClicked((e)->{
-//			orderAction();
-//		});
+
+	}
 //		mypage.setOnMouseClicked((e)->{
 //			mypageAction();
 //		});
-//		basket.setOnMouseClicked((e)->{
-//			basketAction();
-//		});
-	}
+
 //	public void mypageAction() {
 //		
 //	}
-//	private void basketAction() {
-//		Platform.exit();
-//	}
-//	public void orderAction() {
-//		db.dbselect();
-//	}
+
 	@FXML
 	public void login(MouseEvent event) {
-//		login.setOnAction((e)->{
 			Customer cus = new Customer(id.getText(),password.getText());
 			boolean login = db.dbselect(cus);
 			if(login == true) {
@@ -71,7 +60,6 @@ public class OrderMainControll implements Initializable{
 				stage.close();
 		ordermain();
 				
-//			}
 		}
 		}
 	
