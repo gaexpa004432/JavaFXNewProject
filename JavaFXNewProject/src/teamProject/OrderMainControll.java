@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -104,10 +105,10 @@ public class OrderMainControll implements Initializable{
 			Button btnregistry = (Button) parent.lookup("#addbtn");
 			btnregistry.setOnAction((e)-> {
 				TextField txtId = (TextField) parent.lookup("#txtid");
-				TextField txtadress = (TextField) parent.lookup("#txtadress");
+				TextArea txtadress = (TextArea) parent.lookup("#txtadress");
 				TextField txtname = (TextField) parent.lookup("#txtname");
 				TextField txtphone = (TextField) parent.lookup("#txtphone");
-				TextField txtpassword = (TextField) parent.lookup("#txtpassword");
+				PasswordField txtpassword = (PasswordField) parent.lookup("#txtpassword");
 				Customer cus = new Customer(txtId.getText(), txtadress.getText(), txtname.getText(),
 						txtphone.getText(), txtpassword.getText());
 				db.dbregistry(cus);

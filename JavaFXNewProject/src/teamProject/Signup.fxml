@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane id="signup" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@signup.css" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="signup" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@background.css" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -14,38 +14,39 @@
                <font>
                   <Font size="30.0" />
                </font></Label>
-            <Label layoutX="103.0" layoutY="155.0" text="ID">
+            <Label layoutX="65.0" layoutY="155.0" text="ID">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <Label layoutX="72.0" layoutY="231.0" text="password">
+            <Label layoutX="65.0" layoutY="213.0" text="password">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <Label layoutX="89.0" layoutY="304.0" text="name">
+            <Label layoutX="65.0" layoutY="272.0" text="name">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <Label layoutX="79.0" layoutY="381.0" text="address">
+            <Label layoutX="65.0" layoutY="331.0" text="address">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="60.0" layoutY="451.0" text="phone number">
+            <Label layoutX="65.0" layoutY="465.0" text="phone number">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <TextField id="txtid" layoutX="200.0" layoutY="154.0" />
-            <TextField id="txtadress" layoutX="200.0" layoutY="303.0" />
-            <TextField id="txtname" layoutX="200.0" layoutY="381.0" />
-            <TextField id="txtphone" layoutX="200.0" layoutY="452.0" />
-            <PasswordField id="txtpassword" layoutX="200.0" layoutY="231.0" />
+
+            <TextField id="txtid" layoutX="200.0" layoutY="154.0" prefHeight="23.0" prefWidth="120.0" />
+            <TextField id="txtname" layoutX="200.0" layoutY="270.0" prefHeight="23.0" prefWidth="120.0" />
+            <TextField id="txtphone" layoutX="200.0" layoutY="463.0" prefHeight="23.0" prefWidth="120.0" />
+            <PasswordField id="txtpassword" layoutX="200.0" layoutY="211.0" prefHeight="23.0" prefWidth="120.0" />
+            <TextArea id="txtadress" layoutX="200.0" layoutY="331.0" prefHeight="101.0" prefWidth="120.0" />
          </children></AnchorPane>
    </center>
    <bottom>
       <AnchorPane prefHeight="63.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="addbtn" blendMode="EXCLUSION" layoutX="83.0" layoutY="5.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="235.0" text="sign up !">
+            <Button id="addbtn" blendMode="DIFFERENCE" layoutX="83.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="235.0" text="sign up !">
                <font>
                   <Font size="15.0" />
                </font>

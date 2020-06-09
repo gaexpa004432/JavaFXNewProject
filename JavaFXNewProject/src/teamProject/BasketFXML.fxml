@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="basket" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="176.0" layoutY="43.0" text="장바구니" />
+            <Label layoutX="140.0" layoutY="20.0" text="장바구니">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font></Label>
          </children></AnchorPane>
    </center>
    <top>
@@ -21,6 +26,9 @@
                   <MenuItem mnemonicParsing="false" text="주문현황" />
                 <MenuItem mnemonicParsing="false" text="MYPAGE" />
               </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </MenuButton>
          </children>
       </AnchorPane>
