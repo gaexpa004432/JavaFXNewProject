@@ -7,15 +7,30 @@ public class Customer {
 	private SimpleStringProperty adress;
 	private SimpleStringProperty name;
 	private SimpleStringProperty phone;
+	private SimpleStringProperty password;
 	
 	public Customer(String id, String adress,
-			String name, String phone) {
+			String name, String phone ,String password) {
 		this.id = new SimpleStringProperty(id);
 		this.adress = new SimpleStringProperty(adress);
 		this.name = new SimpleStringProperty(name);
 		this.phone = new SimpleStringProperty(phone);
+		this.password = new SimpleStringProperty(password);
+	}
+	public Customer(String id,String password) {
+		this.id = new SimpleStringProperty(id);
+		this.password = new SimpleStringProperty(password);
 	}
 	
+	public String getPassword() {
+		return password.get();
+	}
+	public void setPassword(String password) {
+		this.password.set(password);
+	}
+	public SimpleStringProperty passwordProperty() {
+		return this.password;
+	}
 	public String getId() {
 		return id.get();
 	}
