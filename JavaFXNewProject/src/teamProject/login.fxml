@@ -34,7 +34,7 @@
    <bottom>
       <AnchorPane prefHeight="96.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="login" blendMode="EXCLUSION" layoutX="119.0" layoutY="-21.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="51.0" prefWidth="163.0" text="login">
+            <Button fx:id="login" layoutX="119.0" layoutY="-21.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="51.0" prefWidth="163.0" text="login" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
