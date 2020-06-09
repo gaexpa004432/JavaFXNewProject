@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -25,16 +26,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class OrderMainControll implements Initializable{
-	@FXML Button login,registry;
+	@FXML Button login;
+	@FXML Label registry;
     @FXML TextField id,password;
 //	@FXML ImageView order,basket,mypage;
 	Database db = new Database();
+	ProjectMain pm =new ProjectMain();
 	ObservableList<Customer> customer = null;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
-		registry.setOnAction((e)-> register());
+		registry.setOnMouseClicked((e)-> register());
 		login.setOnAction((e) -> login());
 //		order.setOnMouseClicked((e)->{
 //			orderAction();
@@ -58,18 +61,36 @@ public class OrderMainControll implements Initializable{
 	public void login() {
 		login.setOnAction((e)->{
 			Customer cus = new Customer(id.getText(),password.getText());
-			db.dbselect(cus);
+			boolean login = db.dbselect(cus);
 			
+			if(login == true) {
+				ordermain();
+			}
 		});
 	}
 
+	public void ordermain() {
+		Stage addStage = new Stage(StageStyle.UTILITY);
+		addStage.initModality(Modality.WINDOW_MODAL);
+		addStage.initOwner(login.getScene().getWindow());
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderMain.fxml"));
+			Scene scene = new Scene(parent);
+			addStage.setScene(scene);
+			addStage.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+}
 	public void register() {
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
 		Parent parent;
 		try {
-			parent = FXMLLoader.load(getClass().getResource("regist.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("signup.fxml"));
 			Scene scene = new Scene(parent);
 			addStage.setScene(scene);
 			addStage.show();

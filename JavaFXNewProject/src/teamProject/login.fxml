@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane id="login" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/login.jpg;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="login" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/login.jpg;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teamProject.OrderMainControll">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="399.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,19 +26,19 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="180.0" layoutY="338.0" prefHeight="23.0" prefWidth="129.0" />
-            <PasswordField layoutX="180.0" layoutY="404.0" prefHeight="23.0" prefWidth="129.0" />
+            <TextField fx:id="id" layoutX="180.0" layoutY="338.0" prefHeight="23.0" prefWidth="129.0" />
+            <PasswordField fx:id="password" layoutX="180.0" layoutY="404.0" prefHeight="23.0" prefWidth="129.0" />
          </children></AnchorPane>
    </left>
    <bottom>
       <AnchorPane prefHeight="96.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button blendMode="EXCLUSION" layoutX="119.0" layoutY="-21.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="163.0" text="login">
+            <Button fx:id="login" blendMode="EXCLUSION" layoutX="119.0" layoutY="-21.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="163.0" text="login">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="176.0" layoutY="48.0" text="Sign Up" />
+            <Label fx:id="registry" layoutX="176.0" layoutY="48.0" text="Sign Up" />
          </children>
       </AnchorPane>
    </bottom>
