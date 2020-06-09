@@ -9,13 +9,13 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="29.0" layoutY="31.0" text="장바구니" />
+            <Label layoutX="176.0" layoutY="43.0" text="장바구니" />
          </children></AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem mnemonicParsing="false" text="메인" />
                   <MenuItem mnemonicParsing="false" text="주문현황" />

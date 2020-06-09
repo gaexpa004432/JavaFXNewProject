@@ -16,7 +16,6 @@ public class ProjectMain extends Application{
 		arg0.setScene(scene);
 		arg0.setTitle("배달앱");
 		arg0.show();
-		scene.getStylesheets().add(getClass().getResource("login.css").toString());
 		
 	}
 	
