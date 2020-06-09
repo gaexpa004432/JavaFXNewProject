@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -28,7 +29,8 @@ import javafx.stage.StageStyle;
 public class OrderMainControll implements Initializable{
 	@FXML Button login;
 	@FXML Label registry;
-    @FXML TextField id,password;
+    @FXML TextField id;
+    @FXML PasswordField password;
 //	@FXML ImageView order,basket,mypage;
 	Database db = new Database();
 	ProjectMain pm =new ProjectMain();
@@ -64,7 +66,9 @@ public class OrderMainControll implements Initializable{
 			boolean login = db.dbselect(cus);
 			
 			if(login == true) {
+				
 				ordermain();
+				
 			}
 		});
 	}

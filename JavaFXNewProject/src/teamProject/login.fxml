@@ -7,11 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<<<<<<< HEAD
-<BorderPane id="login" prefHeight="600.0" prefWidth="400.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-=======
 <BorderPane id="login" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/login.jpg;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teamProject.OrderMainControll">
->>>>>>> branch 'master' of https://github.com/gaexpa004432/JavaFXNewProject.git
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="399.0" BorderPane.alignment="CENTER">
          <children>
