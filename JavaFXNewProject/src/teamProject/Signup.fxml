@@ -35,17 +35,17 @@
                <font>
                   <Font size="17.0" />
                </font></Label>
-            <TextField layoutX="200.0" layoutY="154.0" />
-            <TextField layoutX="200.0" layoutY="303.0" />
-            <TextField layoutX="200.0" layoutY="381.0" />
-            <TextField layoutX="200.0" layoutY="452.0" />
-            <PasswordField layoutX="200.0" layoutY="231.0" />
+            <TextField id="txtid" layoutX="200.0" layoutY="154.0" />
+            <TextField id="txtadress" layoutX="200.0" layoutY="303.0" />
+            <TextField id="txtname" layoutX="200.0" layoutY="381.0" />
+            <TextField id="txtphone" layoutX="200.0" layoutY="452.0" />
+            <PasswordField id="txtpassword" layoutX="200.0" layoutY="231.0" />
          </children></AnchorPane>
    </center>
    <bottom>
       <AnchorPane prefHeight="63.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button blendMode="EXCLUSION" layoutX="83.0" layoutY="5.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="235.0" text="sign up !">
+            <Button id="addbtn" blendMode="EXCLUSION" layoutX="83.0" layoutY="5.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="235.0" text="sign up !">
                <font>
                   <Font size="15.0" />
                </font>

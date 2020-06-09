@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -40,7 +40,6 @@ public class OrderMainControll implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
 		registry.setOnMouseClicked((e)-> register());
-		login.setOnAction((e) -> login());
 //		order.setOnMouseClicked((e)->{
 //			orderAction();
 //		});
@@ -60,20 +59,24 @@ public class OrderMainControll implements Initializable{
 //	public void orderAction() {
 //		db.dbselect();
 //	}
-	public void login() {
-		login.setOnAction((e)->{
+	@FXML
+	public void login(MouseEvent event) {
+//		login.setOnAction((e)->{
 			Customer cus = new Customer(id.getText(),password.getText());
 			boolean login = db.dbselect(cus);
-			
 			if(login == true) {
+			Parent node = (Parent) event.getSource();
+			Stage stage = (Stage) node.getScene().getWindow();
+				stage.close();
+		ordermain();
 				
-				ordermain();
-				
-			}
-		});
-	}
+//			}
+		}
+		}
+	
 
 	public void ordermain() {
+		
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
