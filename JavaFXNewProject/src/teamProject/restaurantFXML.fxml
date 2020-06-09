@@ -1,39 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <right>
       <ScrollBar orientation="VERTICAL" BorderPane.alignment="CENTER" />
    </right>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="60.0" layoutY="32.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="60.0" layoutY="86.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="60.0" layoutY="135.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="60.0" layoutY="188.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="60.0" layoutY="245.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="60.0" layoutY="326.0" mnemonicParsing="false" text="Button" />
+            <ImageView fitHeight="145.0" fitWidth="380.0" layoutX="3.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/1.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="11.0" layoutY="107.0" prefHeight="11.0" prefWidth="371.0" />
+            <ImageView fitHeight="212.0" fitWidth="380.0" layoutX="5.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/2.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="11.0" layoutY="221.0" prefHeight="11.0" prefWidth="371.0" />
+            <ImageView fitHeight="93.0" fitWidth="380.0" layoutX="7.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/3.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="11.0" layoutY="330.0" prefHeight="11.0" prefWidth="371.0" />
+            <ImageView fitHeight="194.0" fitWidth="380.0" layoutX="7.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/4.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="11.0" layoutY="440.0" prefHeight="11.0" prefWidth="371.0" />
+            <ImageView fitHeight="128.0" fitWidth="380.0" layoutX="7.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/5.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="11.0" layoutY="549.0" prefHeight="11.0" prefWidth="371.0" />
          </children>
       </AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="76.0" text="Menu">
+            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem mnemonicParsing="false" text="메인" />
+                  <MenuItem mnemonicParsing="false" text="주문현황" />
                 <MenuItem mnemonicParsing="false" text="MYPAGE" />
               </items>
             </MenuButton>
          </children>
       </AnchorPane>
    </top>
-   <bottom>
-      <Button mnemonicParsing="false" text="장바구니" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>

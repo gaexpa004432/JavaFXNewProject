@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="22.0" layoutY="24.0" text="주문현황" />
+         </children></AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="메인" />
+                  <MenuItem mnemonicParsing="false" text="주문현황" />
+                <MenuItem mnemonicParsing="false" text="MYPAGE" />
+              </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+   
+</BorderPane>

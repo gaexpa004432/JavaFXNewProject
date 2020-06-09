@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="메인" />
+                  <MenuItem mnemonicParsing="false" text="주문현황" />
+                <MenuItem mnemonicParsing="false" text="MYPAGE" />
+              </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+      <bottom>
+      <Button prefHeight="29.0" prefWidth="406.0" text="장바구니" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
