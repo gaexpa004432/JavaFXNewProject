@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -73,8 +74,16 @@ public class OrderMainControll implements Initializable{
 				ImageView basket = (ImageView) parent.lookup("#basket");
 				ImageView mypage = (ImageView) parent.lookup("#mypage");
 				order.setOnMouseClicked((e)-> {
-					order();
 					addStage.close();
+					order("restaurantFXML");
+					});
+				basket.setOnMouseClicked((e)-> {
+					addStage.close();
+					order("BasketFXML");
+					});
+				mypage.setOnMouseClicked((e)-> {
+					addStage.close();
+					order("MyinfoMain");
 					});
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -83,8 +92,7 @@ public class OrderMainControll implements Initializable{
 				
 			
 		}
-	private void order() {
-		String str = "restaurantFXML";
+	private void order(String str) {
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
@@ -97,6 +105,28 @@ public class OrderMainControll implements Initializable{
 			BorderPane bp = (BorderPane) parent.lookup("#bp");
 			Parent root = FXMLLoader.load(getClass().getResource(str+".fxml"));
 			bp.setCenter(root);
+			MenuButton menuBtn = (MenuButton) parent.lookup("#menuBtn");
+			menuBtn.getItems().get(0).setOnAction((e)->{
+				addStage.close();
+				ordermain();
+			});
+			menuBtn.getItems().get(1).setOnAction((e)->{
+				try {
+				Parent	parent1 = FXMLLoader.load(getClass().getResource("basketFXML.fxml"));
+				bp.setCenter(parent1);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			});
+			menuBtn.getItems().get(2).setOnAction((e)->{
+				Parent parent2;
+				try {
+					parent2 = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
+					bp.setCenter(parent2);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			});
 			
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
