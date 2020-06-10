@@ -6,19 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Database {
-	
-	Connection conn = null;
-	PreparedStatement pstmt= null;
 
-	
-	public Connection dbconnect(){
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+
+	public Connection dbconnect() {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("Jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
-			
+
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (SQLException e) {
@@ -27,23 +25,46 @@ public class Database {
 		}
 		return conn;
 	}
-	public boolean dbselect(Customer cus) {
-	conn = dbconnect();
-	String sql = "select id,password from customer";
-	try {
-		pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()) {
-			if(rs.getString("id").equals(cus.getId()) && rs.getString("password").equals(cus.getPassword())) {
-				return true;
+
+	public Customer dbcustomer(String str) {
+		conn = dbconnect();
+		String sql = "select * from customer";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				if (rs.getString("id").equals(str)) {
+					Customer cus = new Customer(rs.getString("id"), rs.getString("password"), 
+							rs.getString("name"),rs.getString("address"), rs.getString("phone"));
+					return cus;
+				}
 			}
-		};
-		
-	} catch (SQLException e) {
-		e.printStackTrace();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-	return false;
-}
+
+	public boolean dbselect(Customer cus) {
+		conn = dbconnect();
+		String sql = "select id,password from customer";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				if (rs.getString("id").equals(cus.getId()) && rs.getString("password").equals(cus.getPassword())) {
+					return true;
+				}
+			}
+			;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	public void dbfood() {
 		conn = dbconnect();
 		String sql = "select * from food";
@@ -51,11 +72,12 @@ public class Database {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			System.out.println(rs);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void dbbasket() {
 		conn = dbconnect();
 		String sql = "insert into vasket values(?,?,?)";
@@ -63,11 +85,12 @@ public class Database {
 			pstmt = conn.prepareStatement(sql);
 			int rs = pstmt.executeUpdate();
 			System.out.println(rs);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void dbregistry(Customer cus) {
 		conn = dbconnect();
 		String sql = "insert into customer values(?,?,?,?,?)";
@@ -80,10 +103,10 @@ public class Database {
 			pstmt.setString(5, cus.getPassword());
 			int rs = pstmt.executeUpdate();
 			System.out.println(rs);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
