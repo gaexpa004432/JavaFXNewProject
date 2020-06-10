@@ -24,7 +24,7 @@
             <TextField layoutX="163.0" layoutY="109.0" />
             <TextField layoutX="163.0" layoutY="196.0" />
             <TextField layoutX="163.0" layoutY="413.0" />
-            <ChoiceBox blendMode="EXCLUSION" layoutX="163.0" layoutY="288.0" prefHeight="29.0" prefWidth="172.0" />
+            <ChoiceBox blendMode="EXCLUSION" layoutX="163.0" layoutY="288.0" prefHeight="23.0" prefWidth="138.0" />
          </children></AnchorPane>
    </center>
    <top>

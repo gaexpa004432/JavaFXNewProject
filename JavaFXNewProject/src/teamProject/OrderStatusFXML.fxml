@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="basket" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="22.0" layoutY="24.0" text="주문현황" />
+            <Label layoutX="153.0" layoutY="14.0" text="주문현황">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Label>
+            <Separator layoutY="61.0" prefHeight="0.0" prefWidth="401.0" />
+            <Label layoutX="32.0" layoutY="114.0" text="음식점명" />
+            <Separator layoutY="377.0" prefHeight="0.0" prefWidth="401.0" />
+            <Label layoutX="32.0" layoutY="201.0" text="음식이름" />
+            <Label layoutX="32.0" layoutY="293.0" text="수량" />
+            <Label layoutX="32.0" layoutY="418.0" text="총주문금액" />
+            <TextField layoutX="163.0" layoutY="109.0" />
+            <TextField layoutX="163.0" layoutY="196.0" />
+            <TextField layoutX="163.0" layoutY="413.0" />
+            <ChoiceBox blendMode="EXCLUSION" layoutX="163.0" layoutY="288.0" prefHeight="23.0" prefWidth="138.0" />
          </children></AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem mnemonicParsing="false" text="메인" />
                   <MenuItem mnemonicParsing="false" text="주문현황" />
                 <MenuItem mnemonicParsing="false" text="MYPAGE" />
               </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </MenuButton>
          </children>
       </AnchorPane>
    </top>
-   
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="401.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="확인" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

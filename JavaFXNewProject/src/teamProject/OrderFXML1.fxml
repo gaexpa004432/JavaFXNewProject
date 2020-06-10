@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -10,14 +11,24 @@
    <center>
       <AnchorPane prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
+            <ImageView fitHeight="100.0" fitWidth="400.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/1.jpg" />
+               </image>
+            </ImageView>
+            <Separator layoutX="4.0" layoutY="124.0" prefHeight="3.0" prefWidth="391.0" />
+            <Separator layoutX="7.0" layoutY="329.0" prefHeight="3.0" prefWidth="391.0" />
+            <Label layoutX="184.0" layoutY="147.0" text="메뉴">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem mnemonicParsing="false" text="메인" />
                   <MenuItem mnemonicParsing="false" text="주문현황" />
@@ -28,6 +39,6 @@
       </AnchorPane>
    </top>
       <bottom>
-      <Button prefHeight="29.0" prefWidth="406.0" text="장바구니" BorderPane.alignment="CENTER" />
+      <Button blendMode="EXCLUSION" prefHeight="29.0" prefWidth="406.0" text="장바구니" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

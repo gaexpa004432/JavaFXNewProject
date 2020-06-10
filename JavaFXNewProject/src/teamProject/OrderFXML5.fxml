@@ -8,16 +8,12 @@
 
 <BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <AnchorPane prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem mnemonicParsing="false" text="메인" />
                   <MenuItem mnemonicParsing="false" text="주문현황" />
@@ -28,6 +24,6 @@
       </AnchorPane>
    </top>
       <bottom>
-      <Button prefHeight="29.0" prefWidth="406.0" text="장바구니" BorderPane.alignment="CENTER" />
+      <Button blendMode="EXCLUSION" prefHeight="29.0" prefWidth="406.0" text="장바구니" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
