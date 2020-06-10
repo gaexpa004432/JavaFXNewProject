@@ -11,7 +11,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="order" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="order" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" >
                <image>
                   <Image url="@../images/주문하기.png" />
                </image>
@@ -19,7 +19,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="basket" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="basket" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true" >
                <image>
                   <Image url="@../images/장바구니.png" />
                </image>
@@ -27,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="mypage" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="mypage" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" >
                <image>
                   <Image url="@../images/mypage.png" />
                </image>

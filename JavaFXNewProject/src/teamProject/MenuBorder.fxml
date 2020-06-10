@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="bp" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
+            <MenuButton id="menuBtn" blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
-                <MenuItem mnemonicParsing="false" text="메인" />
-                  <MenuItem mnemonicParsing="false" text="주문현황" />
-                <MenuItem mnemonicParsing="false" text="MYPAGE" />
+                <MenuItem id="main" mnemonicParsing="false" text="메인" />
+                  <MenuItem id="basket" mnemonicParsing="false" text="장바구니" />
+                <MenuItem id="mypage" mnemonicParsing="false" text="MYPAGE" />
               </items>
             </MenuButton>
          </children>
