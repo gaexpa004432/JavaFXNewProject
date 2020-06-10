@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane id="basket" prefHeight="600.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="basket" prefHeight="564.0" prefWidth="400.0" style="-fx-background-image: /images/background.jpg;" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,22 +27,6 @@
             <ChoiceBox blendMode="EXCLUSION" layoutX="163.0" layoutY="288.0" prefHeight="23.0" prefWidth="138.0" />
          </children></AnchorPane>
    </center>
-   <top>
-      <AnchorPane prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-         <children>
-            <MenuButton blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
-              <items>
-                <MenuItem mnemonicParsing="false" text="메인" />
-                  <MenuItem mnemonicParsing="false" text="주문현황" />
-                <MenuItem mnemonicParsing="false" text="MYPAGE" />
-              </items>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </MenuButton>
-         </children>
-      </AnchorPane>
-   </top>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="401.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
