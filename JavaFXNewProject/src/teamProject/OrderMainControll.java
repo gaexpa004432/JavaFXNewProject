@@ -16,9 +16,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,7 +33,7 @@ public class OrderMainControll implements Initializable{
 	Database db = new Database();
 	ProjectMain pm =new ProjectMain();
 	ObservableList<Customer> customer = null;
-	
+	OrderMain2 om = new OrderMain2();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
@@ -48,7 +50,8 @@ public class OrderMainControll implements Initializable{
 			Parent node = (Parent) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 				stage.close();
-		ordermain();
+//				om.ordermain(registry.getScene().getWindow());
+				ordermain();
 				
 		}
 		}
@@ -60,16 +63,49 @@ public class OrderMainControll implements Initializable{
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
 		Parent parent;
+		
+			try {
+				parent = FXMLLoader.load(getClass().getResource("OrderMain.fxml"));
+				Scene scene = new Scene(parent);
+				addStage.setScene(scene);
+				addStage.show();
+				ImageView order = (ImageView) parent.lookup("#order"); 
+				ImageView basket = (ImageView) parent.lookup("#basket");
+				ImageView mypage = (ImageView) parent.lookup("#mypage");
+				order.setOnMouseClicked((e)-> {
+					order();
+					addStage.close();
+					});
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				
+			
+		}
+	private void order() {
+		String str = "restaurantFXML";
+		Stage addStage = new Stage(StageStyle.UTILITY);
+		addStage.initModality(Modality.WINDOW_MODAL);
+		addStage.initOwner(login.getScene().getWindow());
+		Parent parent;
 		try {
-			parent = FXMLLoader.load(getClass().getResource("OrderMain.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("MenuBorder.fxml"));
 			Scene scene = new Scene(parent);
 			addStage.setScene(scene);
 			addStage.show();
+			BorderPane bp = (BorderPane) parent.lookup("#bp");
+			Parent root = FXMLLoader.load(getClass().getResource(str+".fxml"));
+			bp.setCenter(root);
 			
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-}
+	
+	}
+
+
 	public void register() {
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
