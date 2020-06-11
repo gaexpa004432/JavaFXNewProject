@@ -38,6 +38,7 @@ public class OrderMainControll implements Initializable {
 	ProjectMain pm = new ProjectMain();
 	ObservableList<Customer> customer = null;
 	OrderMain2 om = new OrderMain2();
+	String myid;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -51,6 +52,7 @@ public class OrderMainControll implements Initializable {
 		Customer cus = new Customer(id.getText(), password.getText());
 		boolean login = db.dbselect(cus);
 		if (login == true) {
+			this.myid = id.getText();
 			Parent node = (Parent) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 			stage.close();
@@ -88,7 +90,6 @@ public class OrderMainControll implements Initializable {
 				order(3);
 			});
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -133,7 +134,6 @@ public class OrderMainControll implements Initializable {
 			});
 
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -177,7 +177,6 @@ public class OrderMainControll implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML5.fxml"));
 			bp.setCenter(parent);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -188,7 +187,6 @@ public class OrderMainControll implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML4.fxml"));
 			bp.setCenter(parent);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	} 
@@ -199,7 +197,6 @@ public class OrderMainControll implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML3.fxml"));
 			bp.setCenter(parent);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -210,7 +207,6 @@ public class OrderMainControll implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML2.fxml"));
 			bp.setCenter(parent);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -221,7 +217,6 @@ public class OrderMainControll implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML1.fxml"));
 			bp.setCenter(parent);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -231,8 +226,11 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
 			bp.setCenter(parent);
-			Button bt = (Button) parent.lookup("#myinfo");
+			Button bt = (Button) parent.lookup("#buttonmy");
 			bt.setOnAction((e1) -> myinfo(bp));
+		
+			
+			
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -243,8 +241,18 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("Myinfo.fxml"));
 			bp.setCenter(parent);
+			Customer cus = db.dbcustomer(myid);
+			TextField infoid = (TextField) parent.lookup("#txtid");
+			TextField infoname = (TextField) parent.lookup("#txtname");
+			TextField infophone = (TextField) parent.lookup("#txtphone");
+			PasswordField infopassword = (PasswordField) parent.lookup("#txtpassword");
+			TextArea infoaddress = (TextArea) parent.lookup("#txtaddress");
+			infoid.setText(cus.getId());
+			infoname.setText(cus.getName());
+			infophone.setText(cus.getPhone());
+			infopassword.setText(cus.getPassword());
+			infoaddress.setText(cus.getAdress());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

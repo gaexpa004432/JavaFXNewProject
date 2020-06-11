@@ -10,7 +10,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="myinfo" layoutX="102.0" layoutY="89.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="196.0" style="-fx-background-color: black;" text="MyInfo" textFill="WHITE">
+            <Button id="buttonmy" layoutX="102.0" layoutY="89.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="196.0" style="-fx-background-color: black;" text="MyInfo" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
