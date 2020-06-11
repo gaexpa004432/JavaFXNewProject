@@ -30,7 +30,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="401.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="결제하기" />
+            <Button id="acess" blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="결제하기" />
             <Button blendMode="DIFFERENCE" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="전체삭제" />
          </children>
       </HBox>
