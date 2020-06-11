@@ -227,12 +227,25 @@ public class OrderMainControll implements Initializable {
 	}
 
 	private void mypage(BorderPane bp) {
-		Parent parent2;
+		Parent parent;
 		try {
-			parent2 = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
-			bp.setCenter(parent2);
+			parent = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
+			bp.setCenter(parent);
+			Button bt = (Button) parent.lookup("#myinfo");
+			bt.setOnAction((e1) -> myinfo(bp));
 		} catch (IOException e1) {
 			e1.printStackTrace();
+		}
+	}
+
+	private void myinfo(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("Myinfo.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -240,8 +253,7 @@ public class OrderMainControll implements Initializable {
 		try {
 			Parent parent = FXMLLoader.load(getClass().getResource("basketFXML.fxml"));
 			bp.setCenter(parent);
-			Button bt = (Button) parent.lookup("#acess");
-			bt.setOnAction((e1) -> System.out.println("눌림"));
+			
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
