@@ -13,6 +13,7 @@
             <MenuButton id="menuBtn" blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" text="Menu">
               <items>
                 <MenuItem id="main" mnemonicParsing="false" text="메인" />
+                <MenuItem id="order" mnemonicParsing="false" text="주문하기" />
                   <MenuItem id="basket" mnemonicParsing="false" text="장바구니" />
                 <MenuItem id="mypage" mnemonicParsing="false" text="MYPAGE" />
               </items>

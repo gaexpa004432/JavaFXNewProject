@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,73 +25,76 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class OrderMainControll implements Initializable{
-	@FXML Button login;
-	@FXML Label registry;
-    @FXML TextField id;
-    @FXML PasswordField password;
+public class OrderMainControll implements Initializable {
+	@FXML
+	Button login;
+	@FXML
+	Label registry;
+	@FXML
+	TextField id;
+	@FXML
+	PasswordField password;
 	Database db = new Database();
-	ProjectMain pm =new ProjectMain();
+	ProjectMain pm = new ProjectMain();
 	ObservableList<Customer> customer = null;
 	OrderMain2 om = new OrderMain2();
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
-		registry.setOnMouseClicked((e)-> register());
+		registry.setOnMouseClicked((e) -> register());
 
 	}
 
-
 	@FXML
 	public void login(MouseEvent event) {
-			Customer cus = new Customer(id.getText(),password.getText());
-			boolean login = db.dbselect(cus);
-			if(login == true) {
+		Customer cus = new Customer(id.getText(), password.getText());
+		boolean login = db.dbselect(cus);
+		if (login == true) {
 			Parent node = (Parent) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
-				stage.close();
+			stage.close();
 //				om.ordermain(registry.getScene().getWindow());
-				ordermain();
-				
+			ordermain();
+
 		}
-		}
-	
+	}
 
 	public void ordermain() {
-		
+
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
 		Parent parent;
-		
-			try {
-				parent = FXMLLoader.load(getClass().getResource("OrderMain.fxml"));
-				Scene scene = new Scene(parent);
-				addStage.setScene(scene);
-				addStage.show();
-				ImageView order = (ImageView) parent.lookup("#order"); 
-				ImageView basket = (ImageView) parent.lookup("#basket");
-				ImageView mypage = (ImageView) parent.lookup("#mypage");
-				order.setOnMouseClicked((e)-> {
-					addStage.close();
-					order("restaurantFXML");
-					});
-				basket.setOnMouseClicked((e)-> {
-					addStage.close();
-					order("BasketFXML");
-					});
-				mypage.setOnMouseClicked((e)-> {
-					addStage.close();
-					order("MyinfoMain");
-					});
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-				
-			
+
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderMain.fxml"));
+			Scene scene = new Scene(parent);
+			addStage.setScene(scene);
+			addStage.show();
+			ImageView order = (ImageView) parent.lookup("#order");
+			ImageView basket = (ImageView) parent.lookup("#basket");
+			ImageView mypage = (ImageView) parent.lookup("#mypage");
+			order.setOnMouseClicked((e) -> {
+				addStage.close();
+				order(1);
+			});
+			basket.setOnMouseClicked((e) -> {
+				addStage.close();
+				order(2);
+			});
+			mypage.setOnMouseClicked((e) -> {
+				addStage.close();
+				order(3);
+			});
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-	private void order(String str) {
+
+	}
+
+	private void order(int number) {
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
 		addStage.initOwner(login.getScene().getWindow());
@@ -103,38 +105,147 @@ public class OrderMainControll implements Initializable{
 			addStage.setScene(scene);
 			addStage.show();
 			BorderPane bp = (BorderPane) parent.lookup("#bp");
-			Parent root = FXMLLoader.load(getClass().getResource(str+".fxml"));
-			bp.setCenter(root);
+			if (number == 1) {
+				realorder(bp);
+			}
+			if (number == 2) {
+				basket(bp);
+			}
+			if (number == 3) {
+				mypage(bp);
+			}
 			MenuButton menuBtn = (MenuButton) parent.lookup("#menuBtn");
-			menuBtn.getItems().get(0).setOnAction((e)->{
+			menuBtn.getItems().get(0).setOnAction((e) -> {
 				addStage.close();
 				ordermain();
 			});
-			menuBtn.getItems().get(1).setOnAction((e)->{
-				try {
-				Parent	parent1 = FXMLLoader.load(getClass().getResource("basketFXML.fxml"));
-				bp.setCenter(parent1);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+			menuBtn.getItems().get(1).setOnAction((e) -> {
+				realorder(bp);
+
 			});
-			menuBtn.getItems().get(2).setOnAction((e)->{
-				Parent parent2;
-				try {
-					parent2 = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
-					bp.setCenter(parent2);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+			menuBtn.getItems().get(2).setOnAction((e) -> {
+				basket(bp);
+
 			});
-			
+			menuBtn.getItems().get(3).setOnAction((e) -> {
+				mypage(bp);
+
+			});
+
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	
+
 	}
 
+	private void realorder(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("restaurantFXML.fxml"));
+			bp.setCenter(parent);
+			ImageView ricecake = (ImageView) parent.lookup("#ricecake");
+			ImageView chicken = (ImageView) parent.lookup("#chicken");
+			ImageView pizza = (ImageView) parent.lookup("#pizza");
+			ImageView china = (ImageView) parent.lookup("#zzazang");
+			ImageView hamberger = (ImageView) parent.lookup("#hamburger");
+			
+			pizza.setOnMouseClicked((e) -> {
+				pizza(bp);
+			});
+			china.setOnMouseClicked((e) -> {
+				china(bp);
+			});
+			hamberger.setOnMouseClicked((e) -> {
+				hamberger(bp);
+			});
+			ricecake.setOnMouseClicked((e) -> {
+				rice(bp);
+			});
+			chicken.setOnMouseClicked((e) -> {
+				chicken(bp);
+			});
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	private void hamberger(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderFXML5.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void china(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderFXML4.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	} 
+
+	private void pizza(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderFXML3.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void chicken(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderFXML2.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void rice(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderFXML1.fxml"));
+			bp.setCenter(parent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void mypage(BorderPane bp) {
+		Parent parent2;
+		try {
+			parent2 = FXMLLoader.load(getClass().getResource("MyinfoMain.fxml"));
+			bp.setCenter(parent2);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	public void basket(BorderPane bp) {
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("basketFXML.fxml"));
+			bp.setCenter(parent);
+			Button bt = (Button) parent.lookup("#acess");
+			bt.setOnAction((e1) -> System.out.println("눌림"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
 
 	public void register() {
 		Stage addStage = new Stage(StageStyle.UTILITY);
@@ -147,21 +258,21 @@ public class OrderMainControll implements Initializable{
 			addStage.setScene(scene);
 			addStage.show();
 			Button btnregistry = (Button) parent.lookup("#addbtn");
-			btnregistry.setOnAction((e)-> {
+			btnregistry.setOnAction((e) -> {
 				TextField txtId = (TextField) parent.lookup("#txtid");
 				TextArea txtadress = (TextArea) parent.lookup("#txtadress");
 				TextField txtname = (TextField) parent.lookup("#txtname");
 				TextField txtphone = (TextField) parent.lookup("#txtphone");
 				PasswordField txtpassword = (PasswordField) parent.lookup("#txtpassword");
-				Customer cus = new Customer(txtId.getText(), txtadress.getText(), txtname.getText(),
-						txtphone.getText(), txtpassword.getText());
+				Customer cus = new Customer(txtId.getText(), txtadress.getText(), txtname.getText(), txtphone.getText(),
+						txtpassword.getText());
 				db.dbregistry(cus);
 				addStage.close();
 			});
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
