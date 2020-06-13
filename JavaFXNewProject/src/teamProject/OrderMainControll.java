@@ -45,16 +45,16 @@ public class OrderMainControll implements Initializable{
 
 	@FXML
 	public void login(MouseEvent event) {
-			Customer cus = new Customer(id.getText(),password.getText());
-			boolean login = db.dbselect(cus);
-			if(login == true) {
-			Parent node = (Parent) event.getSource();
-			Stage stage = (Stage) node.getScene().getWindow();
-				stage.close();
+//			Customer cus = new Customer(id.getText(),password.getText());
+//			boolean login = db.dbselect(cus);
+//			if(login == true) {
+//			Parent node = (Parent) event.getSource();
+//			Stage stage = (Stage) node.getScene().getWindow();
+//				stage.close();
 //				om.ordermain(registry.getScene().getWindow());
 				ordermain();
 				
-		}
+//		}
 		}
 	
 
