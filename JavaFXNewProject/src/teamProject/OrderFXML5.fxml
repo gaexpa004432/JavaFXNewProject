@@ -35,15 +35,18 @@
                <image>
                   <Image url="@../menuimages/rest05_03.png" />
                </image></ImageView>
-            <RadioButton layoutX="140.0" layoutY="212.0" mnemonicParsing="false" text="허니 크림치즈 상하이버거">
+                 <fx:define>
+                     <ToggleGroup fx:id="lotteria" />
+                 </fx:define>
+            <RadioButton id="lotteria1" toggleGroup="$lotteria" layoutX="140.0" layoutY="212.0" mnemonicParsing="false" text="허니 크림치즈 상하이버거">
                <font>
                   <Font size="15.0" />
                </font></RadioButton>
-            <RadioButton layoutX="140.0" layoutY="313.0" mnemonicParsing="false" text="빅맥">
+            <RadioButton id="lotteria2" toggleGroup="$lotteria" layoutX="140.0" layoutY="313.0" mnemonicParsing="false" text="빅맥">
                <font>
                   <Font size="15.0" />
                </font></RadioButton>
-            <RadioButton layoutX="140.0" layoutY="411.0" mnemonicParsing="false" text="슈비버거">
+            <RadioButton id="lotteria3" toggleGroup="$lotteria" layoutX="140.0" layoutY="411.0" mnemonicParsing="false" text="슈비버거">
                <font>
                   <Font size="15.0" />
                </font></RadioButton>
@@ -62,6 +65,6 @@
          </children></AnchorPane>
    </center>
       <bottom>
-      <Button blendMode="EXCLUSION" prefHeight="42.0" prefWidth="400.0" text="장바구니" BorderPane.alignment="CENTER" />
+      <Button id="basket" blendMode="EXCLUSION" prefHeight="42.0" prefWidth="400.0" text="장바구니" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

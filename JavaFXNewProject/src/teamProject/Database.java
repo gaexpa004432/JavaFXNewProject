@@ -77,15 +77,37 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-
-	public void dbbasket() {
+	
+	public Basket dbOrderBasket() {
 		conn = dbconnect();
-		String sql = "insert into vasket values(?,?,?)";
+		String sql = "select r.rest_name,f.food_name,f.price from basket b,restaurant r,food f where b.bask_rest_id = r.rest_id and b.BASK_FOOD_ID = f.FOOD_ID";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println(rs);
+			while(rs.next()) {
+			
+			Basket bas = new Basket(rs.getString("food_name"),rs.getString("rest_name"),rs.getInt("price"));
+			return bas;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void dbbasket(Basket bas) {
+		conn = dbconnect();
+		String sql = "insert into basket values(?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bas.getMyid());
+			pstmt.setInt(2, bas.getMyrest());
+			pstmt.setInt(3, bas.getMyfood());
 			int rs = pstmt.executeUpdate();
 			System.out.println(rs);
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
