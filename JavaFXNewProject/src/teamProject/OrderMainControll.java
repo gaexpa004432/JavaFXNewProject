@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,11 +41,14 @@ public class OrderMainControll implements Initializable {
 	ObservableList<Customer> customer = null;
 	OrderMain2 om = new OrderMain2();
 	String myid;
+	Basket bas = new Basket();
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		customer = FXCollections.observableArrayList();
 		registry.setOnMouseClicked((e) -> register());
+
 
 	}
 
@@ -176,6 +181,33 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML5.fxml"));
 			bp.setCenter(parent);
+			RadioButton lotteria1 = (RadioButton) parent.lookup("#lotteria1");
+			lotteria1.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(5);
+				bas.setMyfood(13);
+			});
+			
+			RadioButton lotteria2 = (RadioButton) parent.lookup("#lotteria2");
+			lotteria2.setOnAction((e) -> {
+				bas.setMyid(myid);
+			  	bas.setMyrest(5);
+				bas.setMyfood(14);
+			});
+			
+			RadioButton lotteria3 = (RadioButton) parent.lookup("#lotteria3");
+			lotteria3.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(5);
+				bas.setMyfood(15);
+			});
+			
+			Button basket = (Button) parent.lookup("#basket");
+			basket.setOnAction((e) -> {
+				db.dbbasket(bas);
+				OrderBasket(bp);
+			});
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -186,6 +218,33 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML4.fxml"));
 			bp.setCenter(parent);
+			RadioButton banjum1 = (RadioButton) parent.lookup("#banjum1");
+			banjum1.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(4);
+				bas.setMyfood(10);
+			});
+			
+			RadioButton banjum2 = (RadioButton) parent.lookup("#banjum2");
+			banjum2.setOnAction((e) -> {
+				bas.setMyid(myid);
+			  	bas.setMyrest(4);
+				bas.setMyfood(11);
+			});
+			
+			RadioButton banjum3 = (RadioButton) parent.lookup("#banjum3");
+			banjum3.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(4);
+				bas.setMyfood(12);
+			});
+			
+			Button basket = (Button) parent.lookup("#basket");
+			basket.setOnAction((e) -> {
+				db.dbbasket(bas);
+				OrderBasket(bp);
+			});
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -196,6 +255,33 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML3.fxml"));
 			bp.setCenter(parent);
+			RadioButton pizzahut1 = (RadioButton) parent.lookup("#pizzahut1");
+			pizzahut1.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(3);
+				bas.setMyfood(7);
+			});
+			
+			RadioButton pizzahut2 = (RadioButton) parent.lookup("#pizzahut2");
+			pizzahut2.setOnAction((e) -> {
+				bas.setMyid(myid);
+			  	bas.setMyrest(3);
+				bas.setMyfood(8);
+			});
+			
+			RadioButton pizzahut3 = (RadioButton) parent.lookup("#pizzahut3");
+			pizzahut3.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(3);
+				bas.setMyfood(9);
+			});
+			
+			Button basket = (Button) parent.lookup("#basket");
+			basket.setOnAction((e) -> {
+				db.dbbasket(bas);
+				OrderBasket(bp);
+			});
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -206,6 +292,33 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML2.fxml"));
 			bp.setCenter(parent);
+			RadioButton kyochon1 = (RadioButton) parent.lookup("#kyochon1");
+			kyochon1.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(2);
+				bas.setMyfood(4);
+			});
+			
+			RadioButton kyochon2 = (RadioButton) parent.lookup("#kyochon2");
+			kyochon2.setOnAction((e) -> {
+				bas.setMyid(myid);
+			  	bas.setMyrest(2);
+				bas.setMyfood(5);
+			});
+			
+			RadioButton kyochon3 = (RadioButton) parent.lookup("#kyochon3");
+			kyochon3.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(2);
+				bas.setMyfood(6);
+			});
+			
+			Button basket = (Button) parent.lookup("#basket");
+			basket.setOnAction((e) -> {
+				db.dbbasket(bas);
+				OrderBasket(bp);
+			});
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -216,6 +329,53 @@ public class OrderMainControll implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("OrderFXML1.fxml"));
 			bp.setCenter(parent);
+			RadioButton dduck1 = (RadioButton) parent.lookup("#dduck1");
+			dduck1.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(1);
+				bas.setMyfood(1);
+			});
+			
+			RadioButton dduck2 = (RadioButton) parent.lookup("#dduck2");
+			dduck2.setOnAction((e) -> {
+				bas.setMyid(myid);
+			  	bas.setMyrest(1);
+				bas.setMyfood(2);
+			});
+			
+			RadioButton dduck3 = (RadioButton) parent.lookup("#dduck3");
+			dduck3.setOnAction((e) -> {
+				bas.setMyid(myid);
+				bas.setMyrest(1);
+				bas.setMyfood(3);
+			});
+			
+			Button basket = (Button) parent.lookup("#basket");
+			basket.setOnAction((e) -> {
+				db.dbbasket(bas);
+				OrderBasket(bp);
+			});
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void OrderBasket(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("BasketFXML.fxml"));
+			bp.setCenter(parent);
+			Basket bas = db.dbOrderBasket();
+			TextField bas1 = (TextField) parent.lookup("#bas1");
+			bas1.setText(bas.getCustId().get());
+			
+			TextField bas2 = (TextField) parent.lookup("#bas2");
+			bas2.setText(bas.getRestId().get());
+			
+			TextField bas3 = (TextField) parent.lookup("#bas3");
+			bas3.setText(String.valueOf(bas.getFoodId().get()));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
