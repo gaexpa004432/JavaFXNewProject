@@ -11,7 +11,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="144.0" layoutY="60.0" text="Sign Up">
+            <Label layoutX="144.0" layoutY="60.0" text="My Info">
                <font>
                   <Font size="30.0" />
                </font></Label>
@@ -41,7 +41,7 @@
             <TextField id="txtname" layoutX="200.0" layoutY="270.0" prefHeight="23.0" prefWidth="120.0" />
             <TextField id="txtphone" layoutX="200.0" layoutY="463.0" prefHeight="23.0" prefWidth="120.0" />
             <PasswordField id="txtpassword" layoutX="200.0" layoutY="211.0" prefHeight="23.0" prefWidth="120.0" />
-            <TextArea id="txtadress" layoutX="200.0" layoutY="331.0" prefHeight="101.0" prefWidth="120.0" />
+            <TextArea id="txtaddress" layoutX="200.0" layoutY="331.0" prefHeight="101.0" prefWidth="120.0" />
          </children></AnchorPane>
    </center>
    <bottom>
