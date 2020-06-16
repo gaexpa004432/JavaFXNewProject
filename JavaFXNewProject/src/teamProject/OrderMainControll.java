@@ -42,7 +42,7 @@ public class OrderMainControll implements Initializable {
 	OrderMain2 om = new OrderMain2();
 	String myid;
 	Basket bas = new Basket();
-	
+	int food =1;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -115,7 +115,7 @@ public class OrderMainControll implements Initializable {
 				realorder(bp);
 			}
 			if (number == 2) {
-				OrderBasket(bp,1);
+				OrderBasket(bp,food);
 			}
 			if (number == 3) {
 				mypage(bp);
@@ -130,7 +130,7 @@ public class OrderMainControll implements Initializable {
 
 			});
 			menuBtn.getItems().get(2).setOnAction((e) -> {
-				OrderBasket(bp,1);
+				OrderBasket(bp,food);
 
 			});
 			menuBtn.getItems().get(3).setOnAction((e) -> {
@@ -204,7 +204,8 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				OrderBasket(bp,db.dbbasket(bas));
+				food = db.dbbasket(bas);
+				OrderBasket(bp,food);
 			});
 			
 		} catch (IOException e) {
@@ -240,7 +241,8 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				OrderBasket(bp,db.dbbasket(bas));
+				food = db.dbbasket(bas);
+				OrderBasket(bp,food);
 			});
 			
 		} catch (IOException e) {
@@ -276,7 +278,8 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				OrderBasket(bp,db.dbbasket(bas));
+				food = db.dbbasket(bas);
+				OrderBasket(bp,food);
 			});
 			
 		} catch (IOException e) {
@@ -312,7 +315,8 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				OrderBasket(bp,db.dbbasket(bas));;
+				food = db.dbbasket(bas);
+				OrderBasket(bp,food);
 			});
 			
 		} catch (IOException e) {
@@ -348,7 +352,8 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				OrderBasket(bp,db.dbbasket(bas));
+				food = db.dbbasket(bas);
+				OrderBasket(bp,food);
 			});
 			
 		} catch (IOException e) {
@@ -415,7 +420,7 @@ public class OrderMainControll implements Initializable {
 			Button bt = (Button) parent.lookup("#buttonmy");
 			bt.setOnAction((e1) -> myinfo(bp));
 			Button btn = (Button) parent.lookup("#mybutton");
-			btn.setOnAction((e)->Orderstatus(bp,1));
+			btn.setOnAction((e)->Orderstatus(bp,food));
 			
 			
 		} catch (IOException e1) {
