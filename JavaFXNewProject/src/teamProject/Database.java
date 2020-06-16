@@ -85,7 +85,6 @@ public class Database {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if(food == 0) {
-//				food = rs.get;
 			}
 			System.out.println(rs);
 			while(rs.next()) {
