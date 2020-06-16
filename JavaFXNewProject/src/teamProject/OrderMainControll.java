@@ -103,7 +103,11 @@ public class OrderMainControll implements Initializable {
 		}
 
 	}
-
+	
+	private Stage Stage(Stage addStage) {
+		return addStage;
+	}
+	
 	private void order(int number) {
 		Stage addStage = new Stage(StageStyle.UTILITY);
 		addStage.initModality(Modality.WINDOW_MODAL);
@@ -374,6 +378,38 @@ public class OrderMainControll implements Initializable {
 			
 			TextField bas3 = (TextField) parent.lookup("#bas3");
 			bas3.setText(String.valueOf(bas.getFoodId().get()));
+			
+			Button acess = (Button) parent.lookup("#acess");
+			acess.setOnAction((e) -> {
+				OrderStatus(bp);
+			});
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void OrderStatus(BorderPane bp) {
+		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("OrderStatusFXML.fxml"));
+			bp.setCenter(parent);
+			Basket bas = db.dbOrderBasket();
+			TextField oder1 = (TextField) parent.lookup("#oder1");
+			oder1.setText(bas.getCustId().get());
+			
+			TextField oder2 = (TextField) parent.lookup("#oder2");
+			oder2.setText(bas.getRestId().get());
+			
+			TextField oder3 = (TextField) parent.lookup("#oder3");
+			oder3.setText(String.valueOf(bas.getFoodId().get()));
+			
+			Button yes = (Button) parent.lookup("#yes");
+			yes.setOnAction((e) -> {
+				
+				ordermain();
+			});
 			
 		} catch (IOException e) {
 			e.printStackTrace();
