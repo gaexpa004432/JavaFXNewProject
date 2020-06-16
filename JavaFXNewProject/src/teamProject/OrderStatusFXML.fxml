@@ -18,15 +18,15 @@
             <Label layoutX="70.0" layoutY="154.0" text="음식점명" />
             <Label layoutX="70.0" layoutY="278.0" text="음식이름" />
             <Label layoutX="70.0" layoutY="398.0" text="총주문금액" />
-            <TextField layoutX="185.0" layoutY="150.0" />
-            <TextField layoutX="185.0" layoutY="273.0" />
-            <TextField layoutX="185.0" layoutY="395.0" />
+            <TextField id="oder1" layoutX="185.0" layoutY="150.0" />
+            <TextField id="oder2" layoutX="185.0" layoutY="273.0" />
+            <TextField id="oder3" layoutX="185.0" layoutY="395.0" />
          </children></AnchorPane>
    </center>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="401.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="확인">
+            <Button id="yes" blendMode="EXCLUSION" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="확인">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
