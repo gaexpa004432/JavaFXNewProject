@@ -11,7 +11,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="153.0" layoutY="64.0" text="장바구니">
+            <Label id="label" layoutX="153.0" layoutY="64.0" text="장바구니">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font></Label>

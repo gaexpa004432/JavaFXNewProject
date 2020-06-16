@@ -371,10 +371,17 @@ public class OrderMainControll implements Initializable {
 			TextField bas3 = (TextField) parent.lookup("#bas3");
 			bas3.setText(String.valueOf(bas.getFoodId().get()));
 			 
+			Button acess = (Button) parent.lookup("#acess");
+			Label label = (Label) parent.lookup("#label");
+			acess.setOnAction((e)->{
+				label.setText("주문현황");
+			});
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
+	
 
 	private void mypage(BorderPane bp) {
 		Parent parent;
