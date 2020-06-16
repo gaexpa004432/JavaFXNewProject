@@ -370,7 +370,7 @@ public class OrderMainControll implements Initializable {
 			
 			TextField bas3 = (TextField) parent.lookup("#bas3");
 			bas3.setText(String.valueOf(bas.getFoodId().get()));
-			
+			 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
