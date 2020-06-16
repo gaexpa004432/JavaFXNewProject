@@ -15,7 +15,7 @@ public class Database {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("Jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
+			conn = DriverManager.getConnection("Jdbc:oracle:thin:@192.168.0.57:1521:xe", "hr", "hr");
 
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
@@ -78,17 +78,21 @@ public class Database {
 		}
 	}
 	
-	public Basket dbOrderBasket() {
+	public Basket dbOrderBasket(int food) {
 		conn = dbconnect();
-		String sql = "select r.rest_name,f.food_name,f.price from basket b,restaurant r,food f where b.bask_rest_id = r.rest_id and b.BASK_FOOD_ID = f.FOOD_ID";
+		String sql = "select r.rest_name,f.food_name,f.price ,f.food_id from basket b,restaurant r,food f where b.bask_rest_id = r.rest_id and b.BASK_FOOD_ID = f.FOOD_ID";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			if(food == 0) {
+//				food = rs.get;
+			}
 			System.out.println(rs);
 			while(rs.next()) {
-			
+			if (food == rs.getInt("food_id")) {
 			Basket bas = new Basket(rs.getString("food_name"),rs.getString("rest_name"),rs.getInt("price"));
 			return bas;
+			}
 			}
 			
 		} catch (SQLException e) {
@@ -97,7 +101,7 @@ public class Database {
 		return null;
 	}
 
-	public void dbbasket(Basket bas) {
+	public int dbbasket(Basket bas) {
 		conn = dbconnect();
 		String sql = "insert into basket values(?,?,?)";
 		try {
@@ -107,10 +111,11 @@ public class Database {
 			pstmt.setInt(3, bas.getMyfood());
 			int rs = pstmt.executeUpdate();
 			System.out.println(rs);
-			
+			return bas.getMyfood();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return bas.getMyfood();
 	}
 
 	public void dbregistry(Customer cus) {

@@ -115,7 +115,7 @@ public class OrderMainControll implements Initializable {
 				realorder(bp);
 			}
 			if (number == 2) {
-				basket(bp);
+				OrderBasket(bp,1);
 			}
 			if (number == 3) {
 				mypage(bp);
@@ -130,7 +130,7 @@ public class OrderMainControll implements Initializable {
 
 			});
 			menuBtn.getItems().get(2).setOnAction((e) -> {
-				basket(bp);
+				OrderBasket(bp,1);
 
 			});
 			menuBtn.getItems().get(3).setOnAction((e) -> {
@@ -204,8 +204,7 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				db.dbbasket(bas);
-				OrderBasket(bp);
+				OrderBasket(bp,db.dbbasket(bas));
 			});
 			
 		} catch (IOException e) {
@@ -241,8 +240,7 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				db.dbbasket(bas);
-				OrderBasket(bp);
+				OrderBasket(bp,db.dbbasket(bas));
 			});
 			
 		} catch (IOException e) {
@@ -278,8 +276,7 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				db.dbbasket(bas);
-				OrderBasket(bp);
+				OrderBasket(bp,db.dbbasket(bas));
 			});
 			
 		} catch (IOException e) {
@@ -315,8 +312,7 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				db.dbbasket(bas);
-				OrderBasket(bp);
+				OrderBasket(bp,db.dbbasket(bas));;
 			});
 			
 		} catch (IOException e) {
@@ -352,8 +348,7 @@ public class OrderMainControll implements Initializable {
 			
 			Button basket = (Button) parent.lookup("#basket");
 			basket.setOnAction((e) -> {
-				db.dbbasket(bas);
-				OrderBasket(bp);
+				OrderBasket(bp,db.dbbasket(bas));
 			});
 			
 		} catch (IOException e) {
@@ -361,12 +356,12 @@ public class OrderMainControll implements Initializable {
 		}
 	}
 
-	private void OrderBasket(BorderPane bp) {
+	private void OrderBasket(BorderPane bp,int food) {
 		Parent parent;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("BasketFXML.fxml"));
 			bp.setCenter(parent);
-			Basket bas = db.dbOrderBasket();
+			Basket bas = db.dbOrderBasket(food);
 			TextField bas1 = (TextField) parent.lookup("#bas1");
 			bas1.setText(bas.getCustId().get());
 			
@@ -417,15 +412,7 @@ public class OrderMainControll implements Initializable {
 		}
 	}
 
-	public void basket(BorderPane bp) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("basketFXML.fxml"));
-			bp.setCenter(parent);
-			
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-	}
+	
 
 	public void register() {
 		Stage addStage = new Stage(StageStyle.UTILITY);
