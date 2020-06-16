@@ -372,9 +372,8 @@ public class OrderMainControll implements Initializable {
 			bas3.setText(String.valueOf(bas.getFoodId().get()));
 			 
 			Button acess = (Button) parent.lookup("#acess");
-			Label label = (Label) parent.lookup("#label");
 			acess.setOnAction((e)->{
-				label.setText("주문현황");
+				Orderstatus(bp,food);
 			});
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -383,6 +382,31 @@ public class OrderMainControll implements Initializable {
 
 	
 
+	private void Orderstatus(BorderPane bp,int food) {
+		Parent parent;
+			try {
+				parent = FXMLLoader.load(getClass().getResource("OrderStatusFXML.fxml"));
+				bp.setCenter(parent);
+				Basket bas = db.dbOrderBasket(food);
+				TextField bas1 = (TextField) parent.lookup("#oder1");
+				bas1.setText(bas.getCustId().get());
+				
+				TextField bas2 = (TextField) parent.lookup("#oder2");
+				bas2.setText(bas.getRestId().get());
+				
+				TextField bas3 = (TextField) parent.lookup("#oder3");
+				bas3.setText(String.valueOf(bas.getFoodId().get()));
+				
+				Button yes = (Button) parent.lookup("#yes");
+				yes.setOnAction((e)->{
+					ordermain();
+				});
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
+	}
+
 	private void mypage(BorderPane bp) {
 		Parent parent;
 		try {
@@ -390,7 +414,8 @@ public class OrderMainControll implements Initializable {
 			bp.setCenter(parent);
 			Button bt = (Button) parent.lookup("#buttonmy");
 			bt.setOnAction((e1) -> myinfo(bp));
-		
+			Button btn = (Button) parent.lookup("#mybutton");
+			btn.setOnAction((e)->Orderstatus(bp,1));
 			
 			
 		} catch (IOException e1) {
